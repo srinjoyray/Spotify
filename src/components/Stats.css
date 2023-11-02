@@ -1,0 +1,21 @@
+.col-start{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.col-med{
+    width: 60%;
+}
+
+.col-end{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.table-total{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

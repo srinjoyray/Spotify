@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import './Stats.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 
@@ -85,29 +85,32 @@ const Stats = () => {
             <table style={{ width: "100%" }}>
                 <thead>
                     <tr>
-                        <th>QTY</th>
-                        <th>Name</th>
-                        <th>AMT</th>
+                        <th className="col-start">QTY</th>
+                        <th className="col-med">Name</th>
+                        <th className="col-end">AMT</th>
                     </tr>
                 </thead>
                 <tbody>
                     {topTracks.map((track, index) => (
                         <tr key={index}>
-                            <td style={{ width: "20%" }}>{index + 1}</td>
-                            <td style={{ width: "60%" }}>
+                            <td className="col-start">{index + 1}</td>
+                            <td className="col-med">
                                 {track.name} - {" "}
                                 {track.artists
                                     .map((artist) => artist.name)
                                     .join(", ")}
                             </td>
-                            <td style={{ width: "20%" }}>{formatDuration(track.duration_ms)}</td>
+                            <td className="col-end">{formatDuration(track.duration_ms)}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
             <hr/>
+            <div className="table-total">
+
             <p>ITEM COUNT: {topTracks.length}</p>
             <p>TOTAL: {formatDuration(totalDuration)}</p>
+            </div>
             <hr/>
             
             <p>THANK YOU FOR VISITING!</p>
