@@ -4,8 +4,8 @@ import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import {CircularProgress} from '@mui/material';
 
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
 const REDIRECT_URI = "http://localhost:5173/callback"; // Make sure to add this URL to your Spotify Developer Dashboard
 
 function Callback() {

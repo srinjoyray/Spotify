@@ -1,7 +1,7 @@
 // Spotify.js
 import React from 'react';
 
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const REDIRECT_URI = 'http://localhost:5173/callback'; // Make sure to add this URL to your Spotify Developer Dashboard
 
 function Spotify() {
