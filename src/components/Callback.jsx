@@ -1,12 +1,17 @@
 // Callback.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate} from 'react-router-dom';
-import {CircularProgress} from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
-const REDIRECT_URI = "http://localhost:5173/callback"; // Make sure to add this URL to your Spotify Developer Dashboard
+let REDIRECT_URI;
+if (process.env.NODE_ENV === "production") {
+    REDIRECT_URI = "https://spotify-qcmc.onrender.com/callback";
+} else {
+    REDIRECT_URI = "http://localhost:5173/callback";
+}
 
 function Callback() {
     const [accessToken, setAccessToken] = useState(null);
@@ -37,7 +42,7 @@ function Callback() {
             .then((response) => {
                 const { access_token } = response.data;
                 setAccessToken(access_token);
-                localStorage.setItem('access_token', access_token);
+                localStorage.setItem("access_token", access_token);
                 navigate("/stats");
             })
             .catch((error) => {
